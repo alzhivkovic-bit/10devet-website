@@ -14,7 +14,7 @@ const navItems = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="10devet — fudbal iz drugog ugla." />
+    <meta name="description" content="10devet — fudbal ispričan drugačije." />
     <title>10devet — Fudbal iz drugog ugla</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,9 +28,8 @@ const navItems = [
   <body>
     <header class="site-header">
       <a href="/" class="logo">
-        <span class="logo-number">10</span>
-        <span class="logo-name">DEVET</span>
-      </a>
+  <img src="/logo.png" alt="10devet" />
+</a>
 
       <nav class="desktop-nav">
         {navItems.map((item) => (
@@ -127,6 +126,11 @@ const navItems = [
     color: #e0d6cd;
     line-height: 1;
   }
+  .logo img {
+  width: 145px;
+  height: auto;
+  display: block;
+}
 
   .logo-number {
     font-family: 'Bebas Neue', sans-serif;
