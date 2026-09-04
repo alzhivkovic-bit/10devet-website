@@ -1,0 +1,354 @@
+---
+const navItems = [
+  { label: 'NAJNOVIJE', href: '#najnovije' },
+  { label: 'DOMAĆI FUDBAL', href: '#domaci' },
+  { label: 'STRANI FUDBAL', href: '#strani' },
+  { label: 'REPREZENTACIJA', href: '#reprezentacija' },
+  { label: 'VIDEO', href: '#video' },
+  { label: 'O NAMA', href: '#o-nama' },
+];
+---
+
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="10devet — fudbal iz drugog ugla." />
+    <title>10devet — Fudbal iz drugog ugla</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="/" class="logo">
+        <span class="logo-number">10</span>
+        <span class="logo-name">DEVET</span>
+      </a>
+
+      <nav class="desktop-nav">
+        {navItems.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+
+      <button class="search-button" aria-label="Pretraga">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-4-4"></path>
+        </svg>
+      </button>
+
+      <button class="mobile-menu" aria-label="Otvori meni">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <div class="category">DOMAĆI FUDBAL</div>
+
+          <h1>
+            IGRAČ KOJI JE<br />
+            PROMENIO SVE
+          </h1>
+
+          <p>
+            Priča o čoveku koji je protiv svih pravila,
+            sistema i očekivanja napisao svoju istoriju.
+          </p>
+
+          <a href="#" class="hero-link">
+            PROČITAJ PRIČU
+            <span>→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="placeholder-section">
+        <h2>NAJNOVIJE</h2>
+        <div class="red-line"></div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #080808;
+    color: #e0d6cd;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .site-header {
+    height: 82px;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #080808;
+    border-bottom: 1px solid rgba(224, 214, 205, 0.08);
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: #e0d6cd;
+    line-height: 1;
+  }
+
+  .logo-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .logo-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #930f18;
+    margin-left: 3px;
+    transform: skew(-12deg);
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  .desktop-nav a {
+    color: #e0d6cd;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .desktop-nav a:first-child,
+  .desktop-nav a:hover {
+    color: #930f18;
+  }
+
+  .search-button,
+  .mobile-menu {
+    border: 0;
+    background: transparent;
+    color: #e0d6cd;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .hero {
+    min-height: 620px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.98) 0%,
+        rgba(8, 8, 8, 0.82) 32%,
+        rgba(8, 8, 8, 0.25) 70%,
+        rgba(8, 8, 8, 0.55) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(8, 8, 8, 0.95) 0%,
+        transparent 45%
+      ),
+      url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2200&q=85');
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        circle at 75% 45%,
+        rgba(147, 15, 24, 0.12),
+        transparent 35%
+      );
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    padding: 0 5% 72px;
+  }
+
+  .category {
+    color: #930f18;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 7vw, 108px);
+    line-height: 0.88;
+    letter-spacing: 1px;
+    color: #e0d6cd;
+  }
+
+  .hero-content p {
+    max-width: 470px;
+    margin: 24px 0 28px;
+    color: rgba(224, 214, 205, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: #930f18;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+    transition: gap 0.25s ease;
+  }
+
+  .hero-link:hover {
+    gap: 22px;
+  }
+
+  .hero-link span {
+    font-size: 28px;
+  }
+
+  .placeholder-section {
+    padding: 70px 5%;
+    background: #080808;
+  }
+
+  .placeholder-section h2 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 1px;
+  }
+
+  .red-line {
+    width: 42px;
+    height: 4px;
+    margin-top: 12px;
+    background: #930f18;
+  }
+
+  @media (max-width: 1000px) {
+    .desktop-nav {
+      gap: 18px;
+    }
+
+    .desktop-nav a {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .site-header {
+      height: 70px;
+      padding: 0 22px;
+    }
+
+    .logo-number {
+      font-size: 44px;
+    }
+
+    .logo-name {
+      font-size: 24px;
+    }
+
+    .desktop-nav,
+    .search-button {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: flex;
+      width: 30px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .mobile-menu span {
+      width: 100%;
+      height: 2px;
+      background: #e0d6cd;
+    }
+
+    .hero {
+      min-height: calc(100vh - 70px);
+      background-position: 65% center;
+    }
+
+    .hero-content {
+      padding: 0 22px 48px;
+    }
+
+    h1 {
+      font-size: clamp(60px, 17vw, 90px);
+    }
+
+    .hero-content p {
+      font-size: 15px;
+    }
+
+    .placeholder-section {
+      padding: 50px 22px;
+    }
+
+    .placeholder-section h2 {
+      font-size: 44px;
+    }
+  }
+</style>
